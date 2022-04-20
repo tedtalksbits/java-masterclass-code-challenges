@@ -2,18 +2,20 @@ package com.tedaneblake;
 
 public class SpeedConverter {
 
-    public static long toMilesPerHour(double km){
+    public static long toMilesPerHour(double kilometersPerHour){
 
-        if(km < 0) {
+        if(kilometersPerHour < 0) {
             return -1;
         }
-        return (long)Math.ceil(0.62137119 * km);
+        else
+            return Math.round(kilometersPerHour / 1.609);
     }
 
-    public static void printConversion(double km){
-        if(km < 0){
+    public static void printConversion(double kilometersPerHour){
+        if(kilometersPerHour < 0){
             System.out.println("Invalid Value");
         }
-        System.out.println(km + " km/h = " + toMilesPerHour(km) + " mi/h");
+        else
+            System.out.println(kilometersPerHour + " km/h = " + toMilesPerHour(kilometersPerHour) + " mi/h");
     }
 }
